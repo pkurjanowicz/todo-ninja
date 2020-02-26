@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar flat app>
+    <v-app-bar flat app color="white">
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" text color="primary"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase">
         <span class="font-weight-light primary--text">Todo</span>
@@ -11,9 +11,9 @@
         <span>Sign Out</span>
         <v-icon right>mdi-exit-to-app</v-icon>
       </v-btn>
-    </v-toolbar>
+    </v-app-bar>
 
-    <v-navigation-drawer app temporary  v-model='drawer'>
+    <v-navigation-drawer app v-model='drawer'>
       <v-list flat>
           <v-list-item-group v-model="item" flat mandatory color="primary">
             <v-list-item v-for="(item, i) in drawerItems" :key="i" router :to='item.route'>
@@ -27,7 +27,6 @@
           </v-list-item-group>
       </v-list>
     </v-navigation-drawer>
-
   </nav>
 </template>
 
