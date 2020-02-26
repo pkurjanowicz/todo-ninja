@@ -3,8 +3,8 @@
     <v-toolbar flat app>
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" text color="primary"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase">
-        <span class="font-weight-light">Todo</span>
-        <span>Ninja</span>
+        <span class="font-weight-light primary--text">Todo</span>
+        <span class='primary--text'>Ninja</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn text color="primary">
@@ -13,13 +13,19 @@
       </v-btn>
     </v-toolbar>
 
-    <v-navigation-drawer 
-      app 
-      temporary 
-      class='secondary' 
-      v-model='drawer'
-    >
-
+    <v-navigation-drawer app temporary  v-model='drawer'>
+      <v-list flat>
+          <v-list-item-group v-model="item" flat mandatory color="primary">
+            <v-list-item v-for="(item, i) in drawerItems" :key="i" router :to='item.route'>
+              <v-list-item-icon>
+                <v-icon v-text="item.icon"></v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title v-text="item.text" ></v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list-item-group>
+      </v-list>
     </v-navigation-drawer>
 
   </nav>
@@ -30,7 +36,12 @@ export default {
   name: 'navbar',
   data() {
     return {
-      drawer: false
+      drawer: false,
+      drawerItems: [
+        { text: 'Dashboard', icon: 'mdi-view-dashboard', route: '/' },
+        { text: 'My Projects', icon: 'mdi-folder', route: '/projects' },
+        { text: 'Team', icon: 'mdi-account-group', route: '/team' },
+      ],
     }
   },
 }
