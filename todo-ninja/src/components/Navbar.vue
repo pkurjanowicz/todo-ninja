@@ -15,7 +15,7 @@
 
     <v-navigation-drawer app v-model='drawer'>
       <v-list flat>
-          <v-list-item-group v-model="item" flat mandatory color="primary">
+          <v-list-item-group flat mandatory color="primary">
             <v-list-item v-for="(item, i) in drawerItems" :key="i" router :to='item.route'>
               <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>

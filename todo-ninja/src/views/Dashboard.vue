@@ -1,6 +1,21 @@
 <template>
   <div class="dashboard">
-    <v-container class="my-10 mb-12 mx-12 grey lighten-4" fluid>
+    <v-container class="my-10 mb-12 grey lighten-4" style="width: 100%" fluid>
+
+      <v-row class="pa-5 ma-2">
+        <v-btn small text @click="sortBy('title')">
+          <v-icon left small>mdi-folder</v-icon>
+          <span class="caption text-lowercase">By Project Name</span>
+        </v-btn>
+        <v-btn small text @click="sortBy('person')">
+          <v-icon left small>mdi-account</v-icon>
+          <span class="caption text-lowercase">By Person</span>
+        </v-btn>
+        <v-btn small text @click="sortBy('status')">
+          <v-icon left small>mdi-check</v-icon>
+          <span class="caption text-lowercase">By status</span>
+        </v-btn>
+      </v-row>
 
       <v-card flat class="pa-5 ma-2" :class="`pa-5 project ${project.CSS}`" v-for="(project, i) in projects" :key="i">
         <v-row wrap >
@@ -17,8 +32,8 @@
             <div>{{project.due}}</div>
           </v-col>
           <v-col cols="12" sm="4" md="2">
-            <div class="float-right">
-              <v-chip small :class="`${project.CSS} my-2 white--text caption `">{{project.status}}</v-chip>
+            <div class="float-right" :color="``">
+              <v-chip small :color="project_status(project.CSS)" :class="`my-2 white--text caption`">{{project.status}}</v-chip>
             </div>
           </v-col>
         </v-row>
@@ -44,6 +59,17 @@ export default {
         {title: "Deploy Jess' Recipe Website", person: "Pete Kurjanowicz", due: "Apr 30th 2020", status: "Not Started", CSS: "notstarted"},
       ]
     }
+  },
+  methods: {
+    sortBy(name) {
+      this.projects.sort((a,b) => a[name] < b[name] ? -1 : 1)
+    },
+    project_status(status) {
+        if (status === "complete") return "rgb(87, 191, 66)";
+        else if (status === "inprogress") return "rgb(255, 189, 66)";
+        else if (status === "notstarted") return "grey";
+      return "red"
+    }
   }
 }
 </script>
@@ -60,17 +86,5 @@ export default {
   }
   .project.overdue {
     border-left: 4px solid rgb(255, 119, 119)
-  }
-  .v-chip.complete {
-    background: rgb(87, 191, 66)
-  }
-  .v-chip.inprogress {
-    background: rgb(255, 189, 66)
-  }
-  .v-chip.notstarted {
-    background: grey
-  }
-  .v-chip.overdue {
-    background: rgb(255, 66, 66)
   }
 </style>
