@@ -13,11 +13,7 @@ export default new Vuetify({
         secondary: colors.grey.darken1,
         accent: colors.shades.black,
         error: colors.red.accent3,
-        background: colors.grey,
-        // complete: '#57BF42',
-        // inprogress: "#FFBF42",
-        // notstarted: colors.grey,
-        // overdue: "#FF4242",
+        background: colors.grey
       },
     },
   },

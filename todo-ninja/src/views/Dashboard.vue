@@ -3,18 +3,33 @@
     <v-container class="my-10 mb-12 grey lighten-4" style="width: 100%" fluid>
 
       <v-row class="pa-5 ma-2">
-        <v-btn small text @click="sortBy('title')">
-          <v-icon left small>mdi-folder</v-icon>
-          <span class="caption text-lowercase">By Project Name</span>
-        </v-btn>
-        <v-btn small text @click="sortBy('person')">
-          <v-icon left small>mdi-account</v-icon>
-          <span class="caption text-lowercase">By Person</span>
-        </v-btn>
-        <v-btn small text @click="sortBy('status')">
-          <v-icon left small>mdi-check</v-icon>
-          <span class="caption text-lowercase">By status</span>
-        </v-btn>
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn small text @click="sortBy('title')" v-on="on">
+              <v-icon left small>mdi-folder</v-icon>
+              <span class="caption text-lowercase">Project Name</span>
+            </v-btn>
+          </template>
+          <span class="caption text-lowercase">Click to sort by project name</span>
+        </v-tooltip>
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn small text @click="sortBy('person')" v-on="on">
+              <v-icon left small>mdi-account</v-icon>
+              <span class="caption text-lowercase">Person</span>
+            </v-btn>
+          </template>
+          <span class="caption text-lowercase">Click to sort by person</span>
+        </v-tooltip>
+        <v-tooltip top>
+          <template v-slot:activator="{ on }">
+            <v-btn small text @click="sortBy('status')" v-on="on">
+              <v-icon left small>mdi-check</v-icon>
+              <span class="caption text-lowercase">status</span>
+            </v-btn>
+          </template>
+          <span class="caption text-lowercase">Click to sort by status</span>
+        </v-tooltip>
       </v-row>
 
       <v-card flat class="pa-5 ma-2" :class="`pa-5 project ${project.CSS}`" v-for="(project, i) in projects" :key="i">
