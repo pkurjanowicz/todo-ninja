@@ -17,8 +17,9 @@
             <div>{{project.due}}</div>
           </v-col>
           <v-col cols="12" sm="4" md="2">
-            <div class="caption text--secondary">Status</div>
-            <div>{{project.status}}</div>
+            <div class="float-right">
+              <v-chip small :class="`${project.CSS} my-2 white--text caption `">{{project.status}}</v-chip>
+            </div>
           </v-col>
         </v-row>
       </v-card>
@@ -49,15 +50,27 @@ export default {
 
 <style scoped>
   .project.complete {
-    background: rgba(0, 182, 0, 0.1)
+    border-left: 4px solid rgb(87, 191, 117)
   }
   .project.inprogress {
-    background: rgba(255, 255, 0, 0.1)
+    border-left: 4px solid rgb(255, 207, 117)
   }
   .project.notstarted {
-    background: white
+    border-left: 4px solid white
   }
   .project.overdue {
-    background: rgba(255, 0, 0, 0.1)
+    border-left: 4px solid rgb(255, 119, 119)
+  }
+  .v-chip.complete {
+    background: rgb(87, 191, 66)
+  }
+  .v-chip.inprogress {
+    background: rgb(255, 189, 66)
+  }
+  .v-chip.notstarted {
+    background: grey
+  }
+  .v-chip.overdue {
+    background: rgb(255, 66, 66)
   }
 </style>
