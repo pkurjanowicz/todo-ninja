@@ -36,7 +36,7 @@ export default {
   data() {
     return {
       team: [
-        {name: "Pete Kurjanowicz", role: "Web Developer", avatar: "/pete.png"},
+        {name: "Pete Kurjanowicz", role: "Full Stack Engineer", avatar: "/pete.png"},
         {name: "Ivana Humpalot", role:"The Big Cheese", avatar: "/ivana.png" },
         {name: "Mike Hunt", role:"Fuck Boy", avatar: "/mike.png" }
       ]
