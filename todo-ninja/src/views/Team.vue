@@ -4,7 +4,14 @@
       <v-row wrap>
         <v-col cols="12" sm="6" md="4" lg="3" v-for="(person,i) in team" :key=i>
           <v-card flat class="text-center ma-3">
-            <v-img class="pt-4">Image goes here</v-img>
+            <v-img class="pt-4">
+              <v-avatar size="200">
+                <img
+                  :src="person.avatar"
+                  :alt="person.name"
+                >
+              </v-avatar>
+            </v-img>
             <v-card-text>
               <div class="subtitle-1 black--text">{{person.name}}</div>
               <div>{{person.role}}</div>
@@ -29,9 +36,9 @@ export default {
   data() {
     return {
       team: [
-        {name: "Pete Kurjanowicz", role: "Web Developer"},
-        {name: "Ivana Humpalot", role:"The Big Cheese"},
-        {name: "Mike Hunt", role:"Fuck Boy"}
+        {name: "Pete Kurjanowicz", role: "Web Developer", avatar: "/pete.png"},
+        {name: "Ivana Humpalot", role:"The Big Cheese", avatar: "/ivana.png" },
+        {name: "Mike Hunt", role:"Fuck Boy", avatar: "/mike.png" }
       ]
     }
   }

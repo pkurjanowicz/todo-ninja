@@ -14,6 +14,14 @@
     </v-app-bar>
 
     <v-navigation-drawer app v-model='drawer'>
+      <v-row  class="mt-5" >
+        <v-col align="center">
+            <v-avatar size="100">
+              <img src="/pete.png">
+            </v-avatar>
+            <p class="subtitle-2 mt-1">Pete Kurjanowicz</p>
+        </v-col>
+      </v-row>
       <v-list flat>
           <v-list-item-group flat mandatory color="primary">
             <v-list-item v-for="(item, i) in drawerItems" :key="i" router :to='item.route'>
