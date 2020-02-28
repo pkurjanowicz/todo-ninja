@@ -101,6 +101,8 @@ export default {
     submit() {
       if (this.$refs.form.validate()) {
         this.snackbar = true
+        console.log(this.title, this.content, this.date)
+        
       }
     },
   },
