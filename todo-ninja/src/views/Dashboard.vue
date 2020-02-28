@@ -1,6 +1,6 @@
 <template>
   <div class="dashboard">
-    <v-container class="my-10 mb-12 grey lighten-4" style="width: 100%" fluid>
+    <v-container class="my-10 mb-12 grey lighten-4" style=" padding: 0 50px; width: 100%" fluid>
 
       <v-row class="pa-5 ma-2">
         <v-tooltip top>
@@ -72,6 +72,10 @@ export default {
         {title: "Learn Node.js", person: "Pete Kurjanowicz", due: "Mar 10th 2020", status: "Not Started", CSS: "notstarted"},
         {title: "Build Framework for Jess' website", person: "Pete Kurjanowicz", due: "Mar 20th 2020", status: "Not Started", CSS: "notstarted"},
         {title: "Deploy Jess' Recipe Website", person: "Pete Kurjanowicz", due: "Apr 30th 2020", status: "Not Started", CSS: "notstarted"},
+        {title: "Break office chairs", person: "Ivana Humpalot", due: "Apr 12th 2020", status: "In Progress", CSS: "inprogress"},
+        {title: "Destroy happy marriages", person: "Ivana Humpalot", due: "Mar 14th 2020", status: "Over Due", CSS: "overdue"},
+        {title: "Order Pizza", person: "Mike Hunt", due: "Apr 30th 2020", status: "Complete", CSS: "complete"},
+        {title: "Eat that pizza ;)", person: "Mike Hunt", due: "Mar 2nd 2020", status: "In Progress", CSS: "inprogress"},
       ]
     }
   },

@@ -20,6 +20,9 @@
               <img src="/pete.png">
             </v-avatar>
             <p class="subtitle-2 mt-1">Pete Kurjanowicz</p>
+            <div class="mt-4">
+              <Popup />
+            </div>
         </v-col>
       </v-row>
       <v-list flat>
@@ -39,7 +42,10 @@
 </template>
 
 <script>
+import Popup from './TodoAddModal'
+
 export default {
+  components: { Popup },
   name: 'navbar',
   data() {
     return {
