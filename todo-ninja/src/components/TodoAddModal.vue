@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="600px">
+  <v-dialog max-width="600px" v-model="dialog">
     <template v-slot:activator="{ on }">
       <v-btn text v-on="on" class="primary">Add New Project</v-btn>
     </template>
@@ -84,6 +84,7 @@ export default {
       date: new Date().toISOString().substr(0, 10),
       menu1: false,
       valid: true,
+      dialog: false,
       nameRules: [
         v => !!v || 'Name is required',
         v => (v && v.length <= 20) || 'Name must be less than 20 characters',
@@ -102,7 +103,7 @@ export default {
       if (this.$refs.form.validate()) {
         this.snackbar = true
         console.log(this.title, this.content, this.date)
-        
+        this.dialog = false
       }
     },
   },
