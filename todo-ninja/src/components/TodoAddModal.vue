@@ -104,7 +104,14 @@ export default {
         this.snackbar = true
         console.log(this.title, this.content, this.date)
         this.dialog = false
+        this.title = ''
+        this.content = ''
+        this.$emit('projectAdded')
+        this.resetValidation()
       }
+    },
+    resetValidation () {
+      this.$refs.form.resetValidation()
     },
   },
   computed: {
